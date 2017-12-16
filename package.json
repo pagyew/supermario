@@ -9,7 +9,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "serve": "^6.4.1"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
