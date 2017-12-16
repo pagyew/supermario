@@ -29,12 +29,12 @@ export default class SpriteSheet {
     this.define(name, x * this.width, y * this.height, this.width, this.height);
   }
 
-  draw(name, ctx, x, y) {
+  draw(name, context, x, y) {
     const buffer = this.tiles.get(name);
-    ctx.drawImage(buffer, x, y);
+    context.drawImage(buffer, x, y);
   }
 
-  drawTile(name, ctx, x, y) {
-    this.draw(name, ctx, x * this.width, y * this.height);
+  drawTile(name, context, x, y) {
+    this.draw(name, context, x * this.width, y * this.height);
   }
 }
