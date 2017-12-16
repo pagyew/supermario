@@ -21,3 +21,39 @@ export function createSpriteLayer(entities) {
     });
   }
 }
+
+export function createCollisionLayer(level) {
+  const resolvedTiles = [];
+
+  const tileResolver = level.tileCollider.tiles;
+  const tileSize = tileResolver.tileSize;
+
+  const getByIndexOriginal = tileResolver.getByIndex;
+  tileResolver.getByIndex = function getByIndexFake(x, y) {
+    resolvedTiles.push({x, y});
+    return getByIndexOriginal.call(tileResolver, x, y);
+  }
+
+  return function drawCollision(ctx) {
+    ctx.strokeStyle = 'blue';
+    resolvedTiles.forEach(({x, y}) => {
+      ctx.beginPath();
+      ctx.rect(
+        x * tileSize,
+        y * tileSize,
+        tileSize, tileSize);
+      ctx.stroke();
+    });
+
+    ctx.strokeStyle = 'red';
+    level.entities.forEach(entity => {
+      ctx.beginPath();
+      ctx.rect(
+        entity.pos.x, entity.pos.y,
+        entity.size.x, entity.size.y);
+      ctx.stroke();
+    });
+
+    resolvedTiles.length = 0;
+  }
+}
