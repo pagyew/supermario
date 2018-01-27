@@ -1,7 +1,7 @@
 {
   "name": "supermario",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple Super Mario in JavaScript",
   "main": "index.js",
   "scripts": {
     "start": "serve ./public",
@@ -9,6 +9,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "serve": "^6.4.9"
+  },
   "devDependencies": {}
 }
