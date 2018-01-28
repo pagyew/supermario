@@ -13,17 +13,17 @@ export class Trait {
     this.NAME = name;
   }
 
-  obstruct() {
+  collides(us, them) {}
 
-  }
+  obstruct() {}
 
-  update() {
-    console.warn('11!');
-  }
+  update() {}
 }
 
 export default class Entity {
   constructor() {
+    this.canCollide = true;
+
     this.pos = new Vec2(0, 0);
     this.vel = new Vec2(0, 0);
     this.size = new Vec2(0, 0);
@@ -39,15 +39,23 @@ export default class Entity {
     this[trait.NAME] = trait;
   }
 
+  collides(candidate) {
+    this.traits.forEach(trait => {
+      trait.collides(this, candidate);
+    });
+  }
+
   obstruct(side) {
     this.traits.forEach(trait => {
       trait.obstruct(this, side);
     });
   }
 
-  update(deltatTime) {
+  draw() {}
+
+  update(deltatTime, level) {
     this.traits.forEach(trait => {
-      trait.update(this, deltatTime);
+      trait.update(this, deltatTime, level);
     });
 
     this.lifetime += deltatTime;

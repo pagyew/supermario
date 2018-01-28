@@ -1,7 +1,9 @@
 import Entity from "../Entity.js";
 import Go from "../traits/Go.js";
 import Jump from "../traits/Jump.js";
+import Stomper from "../traits/Stomper.js";
 import {loadSpriteSheet} from "../loaders.js";
+import Killable from "../traits/Killable.js";
 
 const SLOW_DRAG = 1/1000;
 const FAST_DRAG = 1/5000;
@@ -12,9 +14,9 @@ export function loadMario() {
 }
 
 function createMarioFactory(sprite) {
-  const runAnim = sprite.animations.get("run");
+  const runAnim = sprite.animations.get('run');
 
-  function routeFrame(mario) {
+  function routeAnim(mario) {
     if (mario.jump.falling) {
       return 'jump';
     }
@@ -34,7 +36,7 @@ function createMarioFactory(sprite) {
   }
 
   function drawMario(context) {
-    sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
+    sprite.draw(routeAnim(this), context, 0, 0, this.go.heading < 0);
   }
   
   return function createMario() {
@@ -43,6 +45,10 @@ function createMarioFactory(sprite) {
 
     mario.addTrait(new Go());
     mario.addTrait(new Jump());
+    mario.addTrait(new Stomper());
+    mario.addTrait(new Killable());
+
+    mario.killable.removeAfter = 0;
 
     mario.turbo = setTurboState;
     mario.draw = drawMario;
