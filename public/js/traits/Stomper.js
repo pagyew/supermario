@@ -1,11 +1,9 @@
-import {Sides, Trait} from '../Entity.js';
+import { Sides, Trait } from '../Entity.js';
 
 export default class Stomper extends Trait {
   constructor() {
     super('stomper'); 
     this.bounceSpeed = 400;
-
-    this.onStomp = function () {}
   }
 
   bounce(us, them) {
@@ -20,7 +18,7 @@ export default class Stomper extends Trait {
 
     if (us.vel.y > them.vel.y) {
       this.bounce(us, them);
-      this.onStomp(us, them);
+      this.events.emit('stomp', us, them);
     }
   }
 }

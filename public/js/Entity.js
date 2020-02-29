@@ -1,5 +1,6 @@
-import {Vec2} from './math.js';
+import { Vec2 } from './math.js';
 import BoundingBox from './BoundingBox.js';
+import EventEmitter from './EventEmitter.js';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -12,6 +13,7 @@ export class Trait {
   constructor(name) {
     this.NAME = name;
 
+    this.events = new EventEmitter();
     this.tasks = [];
   }
 
