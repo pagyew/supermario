@@ -1,9 +1,9 @@
-import Entity, {Sides, Trait} from "../Entity.js";
-import Killable from "../traits/Killable.js";
-import PendulumMove from "../traits/PendulumMove.js";
-import {loadSpriteSheet} from "../loaders.js";
-import Solid from "../traits/Solid.js";
-import Physics from "../traits/Physics.js";
+import Entity, {Sides, Trait} from '../Entity.js';
+import Killable from '../traits/Killable.js';
+import PendulumMove from '../traits/PendulumMove.js';
+import {loadSpriteSheet} from '../loaders.js';
+import Solid from '../traits/Solid.js';
+import Physics from '../traits/Physics.js';
 
 export function loadGoomba() {
   return loadSpriteSheet('goomba')

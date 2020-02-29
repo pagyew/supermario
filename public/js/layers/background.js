@@ -1,4 +1,4 @@
-import TileResolver from "../TileResolver.js";
+import TileResolver from '../TileResolver.js';
 
 export function createBackgroundLayer(level, tiles, sprites) {
   const resolver = new TileResolver(tiles);

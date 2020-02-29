@@ -1,14 +1,14 @@
-import Camera from "./Camera.js";
-import Timer from "./Timer.js";
-import Entity from "./Entity.js";
-import {createLevelLoader} from "./loaders/level.js";
-import {loadEntities} from "./entities.js";
-import {createCollisionLayer} from "./layers/collision.js";
-import {setupKeyboard} from "./input.js";
-import {setupMouseControl} from "./debug.js";
-import PlayerController from "./traits/PlayerController.js";
-import {loadFont} from "./loaders/font.js";
-import { createDashboardLayer } from "./layers/dashboard.js";
+import Camera from './Camera.js';
+import Timer from './Timer.js';
+import Entity from './Entity.js';
+import {createLevelLoader} from './loaders/level.js';
+import {loadEntities} from './entities.js';
+import {createCollisionLayer} from './layers/collision.js';
+import {setupKeyboard} from './input.js';
+import {setupMouseControl} from './debug.js';
+import PlayerController from './traits/PlayerController.js';
+import {loadFont} from './loaders/font.js';
+import { createDashboardLayer } from './layers/dashboard.js';
 
 function createPlayerEnv(entity) {
   const playerEnv = new Entity();

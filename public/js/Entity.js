@@ -1,5 +1,5 @@
-import {Vec2} from "./math.js";
-import BoundingBox from "./BoundingBox.js";
+import {Vec2} from './math.js';
+import BoundingBox from './BoundingBox.js';
 
 export const Sides = {
   TOP: Symbol('top'),
