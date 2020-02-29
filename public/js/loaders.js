@@ -1,5 +1,5 @@
 import SpriteSheet from './SpriteSheet.js';
-import {createAnim} from './anim.js';
+import { createAnim } from './anim.js';
 
 export function loadImage(url) {
   return new Promise(resolve => {
