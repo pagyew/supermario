@@ -4,7 +4,7 @@
   "description": "Simple Super Mario in JavaScript",
   "main": "index.html",
   "dependencies": {
-    "serve": "^6.4.9"
+    "serve": "^7.1.3"
   },
   "devDependencies": {},
   "scripts": {
