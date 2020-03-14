@@ -1,6 +1,7 @@
 import { Vec2 } from './math.js';
 import BoundingBox from './BoundingBox.js';
 import EventEmitter from './EventEmitter.js';
+import AudioBoard from './AudioBoard.js';
 
 export const Sides = {
   TOP: Symbol('top'),
@@ -14,6 +15,7 @@ export class Trait {
     this.NAME = name;
 
     this.events = new EventEmitter();
+    this.sounds = new Set();
     this.tasks = [];
   }
 
@@ -30,11 +32,19 @@ export class Trait {
 
   obstruct() {}
 
+  playSounds(audioBoard, audioContext) {
+    this.sounds.forEach(name => {
+      audioBoard.playAudio(name, audioContext);
+      this.sounds.clear();
+    });
+  }
+
   update() {}
 }
 
 export default class Entity {
   constructor() {
+    this.audio = new AudioBoard();
     this.pos = new Vec2(0, 0);
     this.vel = new Vec2(0, 0);
     this.size = new Vec2(0, 0);
@@ -68,11 +78,14 @@ export default class Entity {
     this.traits.forEach(trait => trait.finalize());
   }
 
-  update(deltatTime, level, audioBoard) {
+  update(gameContext, level) {
+    const { deltaTime, audioContext } = gameContext;
+
     this.traits.forEach(trait => {
-      trait.update(this, deltatTime, level, audioBoard);
+      trait.update(this, gameContext, level);
+      trait.playSounds(this.audio, audioContext);
     });
 
-    this.lifetime += deltatTime;
+    this.lifetime += deltaTime;
   }
 }
