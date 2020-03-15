@@ -170,7 +170,19 @@
           ]
         }
       ]
-    }
+    },
+    {
+      "tiles": [
+          {
+              "pattern": "cannon-2h",
+              "ranges": [
+                  [
+                      6, 7
+                  ]
+              ]
+          }
+      ]
+  }
   ],
 
   "patterns": {
@@ -298,6 +310,25 @@
           ]
         }
       ]
+    },
+
+    "cannon-2h": {
+      "tiles": [
+          {
+              "name": "cannon-1",
+              "type": "ground",
+              "ranges": [
+                  [0, 0]
+              ]
+          },
+          {
+              "name": "cannon-3",
+              "type": "ground",
+              "ranges": [
+                  [0, 1]
+              ]
+          }
+      ]
     }
   },
 
@@ -309,6 +340,10 @@
     {
       "name": "koopa",
       "pos": [260, 0]
-    }
+    },
+    {
+      "name": "cannon",
+      "pos": [96, 112]
+  }
   ]
 }
