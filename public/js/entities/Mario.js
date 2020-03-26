@@ -3,7 +3,7 @@ import Go from '../traits/Go.js';
 import Solid from '../traits/Solid.js';
 import Jump from '../traits/Jump.js';
 import Stomper from '../traits/Stomper.js';
-import { loadSpriteSheet } from '../loaders.js';
+import { loadSpriteSheet } from '../loaders/sprite.js';
 import Killable from '../traits/Killable.js';
 import Physics from '../traits/Physics.js';
 import { loadAudioBoard } from '../loaders/audio.js';

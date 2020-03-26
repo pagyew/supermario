@@ -1,6 +1,6 @@
 import Entity from '../Entity.js';
 import Emitter from '../traits/Emitter.js';
-import { loadSpriteSheet } from '../loaders.js';
+import { loadSpriteSheet } from '../loaders/sprite.js';
 import { loadAudioBoard } from '../loaders/audio.js';
 import { findPlayers } from '../player.js';
 
